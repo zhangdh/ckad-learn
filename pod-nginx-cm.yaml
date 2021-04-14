@@ -10,6 +10,13 @@ spec:
   - image: nginx
     name: nginx-configmap
     resources: {}
+    volumeMounts:
+      - name: cm-volumn
+        mountPath: /yet/another/path
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+    - name: cm-volumn
+      configMap:
+        name: another-config
 status: {}
