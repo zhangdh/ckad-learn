@@ -16,7 +16,7 @@ spec:
     volumeMounts:
     - name: my-volu
       mountPath: /etc/foo
-   - args:
+  - args:
     - /bin/sh
     - -c
     - sleep 3600
@@ -25,9 +25,9 @@ spec:
     volumeMounts:
     - name: my-volu
       mountPath: /etc/foo
-   volumes:
-   - name: my-volu
-     emptyDir: {}
+  volumes:
+  - name: my-volu
+    emptyDir: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
