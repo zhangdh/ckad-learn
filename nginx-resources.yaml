@@ -9,7 +9,10 @@ spec:
   containers:
   - image: nginx
     name: nginx-resources
-    resources: {}
+    resources: 
+      requests: 
+        cpu: "300m"
+        memory: 1G
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
