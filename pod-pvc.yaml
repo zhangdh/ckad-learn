@@ -14,6 +14,13 @@ spec:
     image: busybox
     name: busybox
     resources: {}
+    volumeMounts:
+        - mountPath: "/etc/foo"
+          name: mypvc
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+    - name: mypvc
+      persistentVolumeClaim:
+        claimName: mypvc
 status: {}
