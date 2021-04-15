@@ -6,12 +6,25 @@ metadata:
     run: nginx
   name: nginx
 spec:
+  initContainers:
+  - image: busybox
+    name: busybox
+    command: ['sh', '-c', "wget -O /work-dir/index.html http://neverssl.com/online"]
+    volumeMounts:
+    - mountPath: /work-dir
+      name: myvolume
   containers:
   - image: nginx
     name: nginx
     ports:
     - containerPort: 80
     resources: {}
+    volumeMounts:
+    - mountPath: /usr/share/nginx/html
+      name: myvolume
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+  - name: myvolume
+    emptyDir: {}
 status: {}
