@@ -3,24 +3,22 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: foo
-  name: foo
+    app: nginx
+  name: nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: foo
+      app: nginx
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: foo
+        app: nginx
     spec:
       containers:
-      - image: dgkanatsios/simpleapp
-        name: simpleapp
+      - image: nginx:1.7.8
+        name: nginx
         resources: {}
-        ports:
-          - containerPort: 8080
 status: {}
