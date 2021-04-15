@@ -10,12 +10,9 @@ spec:
   - image: nginx
     name: nginx
     resources: {}
-    env:
-      - name: option
-        valueFrom:
-          configMapKeyRef:
-            name: options
-            key: var5
+    envFrom:
+      - configMapRef:
+          name: anotherone
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
