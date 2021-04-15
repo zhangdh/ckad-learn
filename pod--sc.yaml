@@ -10,6 +10,14 @@ spec:
   - image: nginx
     name: secured
     resources: {}
+    volumeMounts:
+    - mountPath: /data/app
+      name: myvolu
+    securityContext:
+      runAsGroup: 3000
+  volumes:
+  - name: myvolu
+    emptyDir: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
