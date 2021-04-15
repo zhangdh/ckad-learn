@@ -3,22 +3,13 @@ kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: nginx
-  name: nginx
+    run: backend
+  name: backend
 spec:
   containers:
   - image: nginx
-    name: nginx
+    name: backend
     resources: {}
-    volumeMounts:
-    - name: config-volume
-      mountPath: /etc/lala
-  volumes:
-    - name: config-volume
-      configMap:
-        # Provide the name of the ConfigMap containing the files you want
-        # to add to the container
-        name: cmvolume
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
