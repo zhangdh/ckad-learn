@@ -2,20 +2,24 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   creationTimestamp: null
-  name: busybox-job1
+  labels:
+    run: busybox
+  name: busybox
 spec:
-  activeDeadlineSeconds: 30
+  activeDeadlineSeconds: 30 # add this line
   template:
     metadata:
       creationTimestamp: null
+      labels:
+        run: busybox
     spec:
       containers:
-      - command:
+      - args:
         - /bin/sh
         - -c
-        - while true;echo hello k8s;sleep 10;done
+        - while true; do echo hello; sleep 10;done
         image: busybox
-        name: busybox-job1
+        name: busybox
         resources: {}
-      restartPolicy: Never
+      restartPolicy: OnFailure
 status: {}
