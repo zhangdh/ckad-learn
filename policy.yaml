@@ -6,8 +6,6 @@ spec:
   podSelector:
     matchLabels:
       app: nginx
-  policyTypes:
-  - Ingress
   ingress:
   - from:
     - podSelector:
