@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: busybox-job1
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - command:
+        - /bin/sh
+        - -c
+        - while true;echo hello k8s;sleep 10;done
+        image: busybox
+        name: busybox-job1
+        resources: {}
+      restartPolicy: Never
+status: {}
