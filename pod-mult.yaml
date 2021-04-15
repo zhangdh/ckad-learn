@@ -12,7 +12,14 @@ spec:
     - -c
     - echo hello;sleep 3600
     image: busybox
-    name: busybox
+    name: busybox1
+    resources: {}
+   - args:
+    - /bin/sh
+    - -c
+    - echo hello;sleep 3600
+    image: busybox
+    name: busybox2
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
