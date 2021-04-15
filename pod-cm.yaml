@@ -13,7 +13,6 @@ spec:
     envFrom:
       - configMapRef:
           name: db-config
-          key: config.txt
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
