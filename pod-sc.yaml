@@ -10,6 +10,8 @@ spec:
   - image: nginx
     name: nginx
     resources: {}
+  securityContext:
+    runAsUser: 1000
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
