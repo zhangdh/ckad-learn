@@ -10,6 +10,9 @@ spec:
   - image: nginx
     name: backend
     resources: {}
+    envFrom:
+      - configMapRef:
+          name: db-config
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
