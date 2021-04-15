@@ -14,7 +14,7 @@ spec:
     image: busybox
     name: busybox1
     resources: {}
-   - args:
+  - args:
     - /bin/sh
     - -c
     - echo hello;sleep 3600
