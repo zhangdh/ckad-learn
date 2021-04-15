@@ -4,6 +4,7 @@ metadata:
   creationTimestamp: null
   name: busybox-job1
 spec:
+  activeDeadlineSeconds: 30
   template:
     metadata:
       creationTimestamp: null
