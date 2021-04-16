@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: ifccncf/nginx:1.12.2-alpine
+        image: nginx
         env:
         - name: NGINX_PORT
           value: "8001"
