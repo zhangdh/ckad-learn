@@ -7,7 +7,12 @@ metadata:
   name: adapter-busybox
 spec:
   containers:
-  - image: busybox
+  - args:
+    - /bin/sh
+    - -c
+    - while true; do echo "$(date) | $(du -sh ~)" >> /var/logs/diskspace.txt; sleep
+      5; done;
+    image: busybox
     name: adapter-busybox
     resources: {}
   dnsPolicy: ClusterFirst
