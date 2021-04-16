@@ -10,11 +10,26 @@ spec:
   - args:
     - /bin/sh
     - -c
-    - while true; do echo "$(date) | $(du -sh ~)" >> /var/logs/diskspace.txt; sleep
-      5; done;
+    - while true; do echo "$(date) | $(du -sh ~)" >> /var/logs/diskspace.txt; sleep 5; done;
     image: busybox
     name: adapter-busybox
     resources: {}
+    volumeMounts:
+    - mountPath: /var/logs
+      name: myvolu
+  - args:
+    - /bin/sh
+    - -c
+    - sleep 20; while true; do while read LINE; do echo "$LINE" | cut -f2 -d"|" >> $(date +%Y-%m-%d-%H-%M-%S)-transformed.txt; done < /var/logs/diskspace.txt; sleep 20; done;
+    image: transformer
+    name: adapter-busybox
+    resources: {}
+    volumeMounts:
+    - mountPath: /var/logs
+      name: myvolu
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+  - name: myvolu
+    emptyDir: {}
 status: {}
