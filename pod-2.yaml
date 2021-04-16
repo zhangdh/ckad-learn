@@ -9,6 +9,8 @@ spec:
   containers:
   - image: bonomat/nodejs-hello-world
     name: hello
+    ports:
+    - containerPort: 3000
     resources: {}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
