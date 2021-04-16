@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: expose
+  namespace: kdpd00201
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+    spec:
+      containers:
+      - name: nginx
+        image: ifccncf/nginx:1.12.2-alpine
+        ports:
+        - containerPort: 80
+        envs:
+        - name: NGINX_PORT
+          value: 8001
