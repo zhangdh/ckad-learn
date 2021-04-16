@@ -1,24 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
-  labels:
-    app: myapp
   name: expose
-  name: kdpd00201
+  namespace: kdpd00201
+  labels:
+    app: nginx
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: myapp
+        app: nginx
     spec:
       containers:
-      - image: nginx
-        name: nginx
-        resources: {}
+      - name: nginx
+        image: ifccncf/nginx:1.12.2-alpine
         env:
         - name: NGINX_PORT
           value: 8001
-status: {}
