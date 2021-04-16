@@ -10,13 +10,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: deploy
+      app: v1
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: deploy
         app: v1
     spec:
       containers:
