@@ -18,7 +18,7 @@ spec:
       - image: nginx
         name: nginx
         resources: {}
-        envs:
+        env:
         - name: NGINX_PORT
           value: 8001
 status: {}
