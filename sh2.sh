@@ -1,5 +1,5 @@
 while true;
-  do random = $(((RADOM%100)+1));
+  do random = $(((RANDOM%100)+1));
   if [ $random -le 50 ]; then 
     echo "$random";
   else 
