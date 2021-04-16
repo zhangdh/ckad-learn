@@ -4,9 +4,10 @@ metadata:
   creationTimestamp: null
   labels:
     app: deploy
+    tier: backend
   name: deploy
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: deploy
@@ -16,6 +17,7 @@ spec:
       creationTimestamp: null
       labels:
         app: deploy
+        app: v1
     spec:
       containers:
       - image: nginx
