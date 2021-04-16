@@ -4,13 +4,10 @@ metadata:
   creationTimestamp: null
   labels:
     app: myapp
-  name: myapp
+  name: expose
+  name: kdpd00201
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: myapp
-  strategy: {}
+  replicas: 3
   template:
     metadata:
       creationTimestamp: null
@@ -21,6 +18,7 @@ spec:
       - image: nginx
         name: nginx
         resources: {}
-        ports:
-        - containerPort: 80
+        envs:
+        - name: NGINX_PORT
+          value: 8001
 status: {}
