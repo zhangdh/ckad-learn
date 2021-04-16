@@ -3,20 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: deploy
-    tier: backend
-  name: deploy
+    app: myapp
+  name: myapp
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: v1
+      app: myapp
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: v1
+        app: myapp
     spec:
       containers:
       - image: nginx
