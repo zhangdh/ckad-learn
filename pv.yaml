@@ -2,13 +2,11 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv
-  labels:
-    type: local
 spec:
-  storageClassName: shared
   capacity:
-    storage: 512Mi
+    storage: 512m
   accessModes:
     - ReadWriteMany
+  storageClassName: shared
   hostPath:
-    path: "/data/config"
+    path: /data/config
